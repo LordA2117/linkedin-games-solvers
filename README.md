@@ -5,3 +5,4 @@ A collection of solvers for the various puzzles on LinkedIn. Obviously, these st
 ## TODOS
 - [ ] Add solver for tango
 - [ ] Add good interfaces for the solvers
+- [ ] Develop a web interface for the solver using flask, or see if you can pull something off using qt-designer
