@@ -159,17 +159,20 @@ def solve():
     ]
 
     region_board = (
-        ("P", "X", "X", "X", "X", "L", "L", "L"),
-        ("P", "X", "X", "X", "X", "X", "X", "X"),
-        ("P", "X", "X", "G", "X", "X", "X", "X"),
-        ("X", "X", "X", "G", "G", "G", "X", "X"),
-        ("X", "X", "X", "E", "E", "G", "X", "X"),
-        ("X", "E", "E", "E", "O", "O", "X", "Y"),
-        ("X", "X", "X", "X", "X", "O", "X", "Y"),
-        ("B", "B", "B", "X", "O", "O", "X", "Y"),
+        ("X", "X", "X", "X", "X", "X", "X", "X"),
+        ("X", "X", "X", "X", "X", "X", "X", "X"),
+        ("X", "X", "X", "X", "X", "X", "X", "X"),
+        ("X", "X", "X", "X", "X", "X", "X", "X"),
+        ("X", "X", "X", "X", "X", "X", "X", "X"),
+        ("X", "X", "X", "X", "X", "X", "X", "X"),
+        ("X", "X", "X", "X", "X", "X", "X", "X"),
+        ("X", "X", "X", "X", "X", "X", "X", "X"),
     )
 
-    if solveUtil(board, region_board, 0, 8) == False:
+    if (
+        solveUtil(board, region_board, 0, len(get_unique_regions(region_board)))
+        == False
+    ):
         print("Sorry no sol")
     else:
         printBoard(board, region_board)
