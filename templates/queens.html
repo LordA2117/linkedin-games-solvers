@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Queens Solver</title>
+	<script src="{{url_for('static', filename='js/queens.js')}}"></script>
+</head>
+<body>
+	<h1 class="title">Queens Solver</h1>
+	<p class="subtitle">Solver for queens, just mark the board and its regions and we'll do the rest</p>
+	<div class='board-dimensions'>
+		<label for="numrows">Number of Rows: </label>
+		<input type='number' id='numrows' name='numrows'> <br>
+		<button type='submit' id='dim-submit'>Submit</button>
+	</div>
+
+	<table class="chessboard" id='chessboard'></table>
+	<table class="solution" id="solution"></table>
+	<button id='reset-color'>Reset Colors</button>
+	<div class="colorpicker">
+		<label for="region-color">Color: </label> <input type="color" id='region-color' name='region-color'>
+		<button type='submit' id='color-submit'>Select Color</button>
+	</div>
+	<button id="solve">Solve</button>
+</body>
+</html>

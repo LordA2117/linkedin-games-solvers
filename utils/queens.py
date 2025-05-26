@@ -99,6 +99,7 @@ def is_safe(square, board, region_board) -> bool:
         if i == c:
             continue
         if board[r][i] == "Q":
+            # print(r, i)
             return False
 
     # Check adjacent squares
@@ -146,38 +147,39 @@ def printBoard(board, region_board):
         print(string)
 
 
-def solve():
-    board = [
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    ]
+board = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+]
 
-    region_board = (
-        ("P", "P", "P", "P", "P", "P", "P", "P", "P"),
-        ("P", "P", "O", "F", "F", "F", "A", "A", "A"),
-        ("P", "O", "O", "G", "F", "A", "A", "A", "A"),
-        ("P", "O", "G", "G", "F", "L", "L", "A", "A"),
-        ("P", "O", "G", "X", "X", "X", "L", "L", "A"),
-        ("P", "O", "G", "G", "X", "L", "L", "A", "A"),
-        ("P", "O", "O", "G", "X", "L", "B", "A", "A"),
-        ("P", "O", "O", "Y", "Y", "Y", "B", "B", "A"),
-        ("P", "P", "O", "O", "Y", "B", "B", "A", "A"),
-    )
+region_board = (
+    ("P", "P", "P", "P", "P", "P", "P", "P", "P"),
+    ("P", "P", "O", "F", "F", "F", "A", "A", "A"),
+    ("P", "O", "O", "G", "F", "A", "A", "A", "A"),
+    ("P", "O", "G", "G", "F", "L", "L", "A", "A"),
+    ("P", "O", "G", "X", "X", "X", "L", "L", "A"),
+    ("P", "O", "G", "G", "X", "L", "L", "A", "A"),
+    ("P", "O", "O", "G", "X", "L", "B", "A", "A"),
+    ("P", "O", "O", "Y", "Y", "Y", "B", "B", "A"),
+    ("P", "P", "O", "O", "Y", "B", "B", "A", "A"),
+)
 
-    if (
-        solveUtil(board, region_board, 0, len(get_unique_regions(region_board)))
-        == False
-    ):
+
+def solve(board, region_board):
+
+    if solveUtil(board, region_board, 0, len(board)) == False:
         print("Sorry no sol")
+        return []
     else:
         printBoard(board, region_board)
+        return board
 
 
-solve()
+# solve(board, region_board)
