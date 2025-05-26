@@ -5,6 +5,7 @@ function clearChessBoard() {
   while (chessboard.firstChild) {
     chessboard.removeChild(chessboard.lastChild);
   }
+  for (var member in color_obj) delete color_obj[member];
 }
 
 function createChessBoard(dim) {
