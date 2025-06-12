@@ -85,9 +85,6 @@ def get_neighbours(square, board):
     return tuple(neighbours)
 
 
-# Since this graph is possible cyclic, a BFS will be better
-
-
 def check_path(path, numbered_nodes):
     path_order = []
     for i in path:
