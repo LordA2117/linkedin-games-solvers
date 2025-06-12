@@ -194,8 +194,6 @@ def render(board, numbered_nodes, path):
 #
 # walls = []
 
-# paths = dfs(board, numbered_nodes)
-# Testing items
 start = perf_counter()
 paths = dfs(
     min(numbered_nodes, key=numbered_nodes.get),
