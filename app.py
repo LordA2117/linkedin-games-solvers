@@ -30,8 +30,8 @@ def queens_solve():
             # print(coords)
             region_board[int(coords[0])][int(coords[1])] = v
         region_board = tuple(tuple(_) for _ in region_board)
-        pprint(board)
-        pprint(region_board)
+        # pprint(board)
+        # pprint(region_board)
         solution = solve(board, region_board)
         if not solution:
             return jsonify({"error": "No Solution"})
@@ -39,10 +39,22 @@ def queens_solve():
             for j in range(len(solution[i])):
                 if board[i][j]:
                     queen_coords.add((i, j))
-        pprint(solution)
-        print(queen_coords)
+        # pprint(solution)
+        # print(queen_coords)
         return jsonify({"solution": list(queen_coords)})
+
+
+@app.route("/zip", methods=["GET"])
+def zip():
+    return render_template("zip.html")
+
+
+@app.route("/solve_zip", methods=["POST"])
+def zip_solve():
+    return {}
 
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
+
+# BUGS: 1. Queens: 2 digit coordinates cannot be handled well due to js logic. Fix that.

@@ -18,15 +18,17 @@ function createChessBoard(dim) {
       const cell = row.insertCell();
       const button = document.createElement("button");
       button.classList.add("cell");
-      button.classList.add(`coordinate-${i}${j}`);
+      button.classList.add(`coordinate-${i}-${j}`);
       button.innerHTML = "E";
       button.addEventListener("click", () => {
         const colorValue = document.querySelector("#region-color").value;
         button.style.backgroundColor = colorValue;
         const classes = button.classList;
+        const cell_coordinates = classes[1].split("-"); // Shit naming I know
+        console.log(cell_coordinates);
         const coordinates = [
-          Number(classes[1].at(-2)),
-          Number(classes[1].at(-1)),
+          Number(cell_coordinates.at(-2)),
+          Number(cell_coordinates.at(-1)),
         ];
         color_obj[coordinates] = colorValue;
         // console.log(color_obj);
@@ -88,9 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < cells.length; i++) {
       const cell = cells[i];
       const classes = cell.classList;
+      const cell_coordinates = classes[1].split("-"); // Shit naming I know
       const coordinates = [
-        Number(classes[1].at(-2)),
-        Number(classes[1].at(-1)),
+        Number(cell_coordinates.at(-2)),
+        Number(cell_coordinates.at(-1)),
       ];
       for (let j = 0; j < sol.length; j++) {
         if (sol[j][0] === coordinates[0] && sol[j][1] === coordinates[1]) {
