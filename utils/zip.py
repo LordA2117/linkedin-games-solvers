@@ -167,9 +167,7 @@ def render(board, numbered_nodes, path):
         print(string)
 
 
-# test case
-# board = ("---", "---", "---")
-# numbered_nodes = {(0, 0): 1, (1, 1): 2, (2, 2): 3}
+# test case 2
 # board = (
 #     "------",
 #     "------",
@@ -193,8 +191,11 @@ def render(board, numbered_nodes, path):
 #     (4, 4): 7,
 #     (5, 3): 6,
 # }
+#
+# walls = []
 
 # paths = dfs(board, numbered_nodes)
+# Testing items
 start = perf_counter()
 paths = dfs(
     min(numbered_nodes, key=numbered_nodes.get),
