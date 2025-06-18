@@ -3,9 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/zip.css')}}">
+	<title>Zip Solver</title>
 </head>
 <body>
-	
+	<h1> Zip Solver </h1>	
+	<div class='dim-form'>
+		<label for='numrows'>Number of Rows: </label> <input type="number" name='numrows' id='numrows' placeholder='Number of rows'><br>
+		<label for='numcols'>Number of Rows: </label> <input type="number" name='numcols' id='numcols' placeholder='Number of columns'><br>
+		<button id='submit-dimensions'>Submit</button> <button id='reset-dimensions'>Reset</button>
+	</div>
+	<table class='zip-grid' cellpadding="0" cellspacing="0" border="0"></table>
+	<button id='solve'>Solve</button>
+	<script src="{{url_for('static', filename='js/zip.js')}}"></script>
 </body>
 </html>

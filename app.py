@@ -1,6 +1,7 @@
 from pprint import pprint
 from flask import Flask, jsonify, render_template, request
 from utils.queens import solve
+from utils.zip import dfs
 
 app = Flask(__name__)
 
@@ -46,15 +47,46 @@ def queens_solve():
 
 @app.route("/zip", methods=["GET"])
 def zip():
-    return render_template("zip.html")
+    if request.method == "GET":
+        return render_template("zip.html")
 
 
 @app.route("/solve_zip", methods=["POST"])
 def zip_solve():
-    return {}
+    data = request.json
+    # print(data)
+    num_rows = data["rows"]
+    num_cols = data["cols"]
+    walls = data["walls"]
+    nums = data["nums"]
+
+    nums_and_coords = {}
+
+    for key in nums:
+        nums_and_coords[tuple(nums[key])] = int(key)
+    # print(nums_and_coords)
+
+    for i in walls:
+        for j in range(len(i)):
+            i[j] = tuple(i[j])
+
+    # print(walls)
+
+    board = tuple("-" * num_cols for _ in range(num_rows))
+    # print(board)
+
+    paths = dfs(
+        min(nums_and_coords, key=nums_and_coords.get),
+        max(nums_and_coords, key=nums_and_coords.get),
+        board,
+        nums_and_coords,
+        walls,
+    )
+
+    print(paths)
+
+    return jsonify({"solution": paths})
 
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
-
-# BUGS: 1. Queens: 2 digit coordinates cannot be handled well due to js logic. Fix that.

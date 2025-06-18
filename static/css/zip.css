@@ -1,0 +1,27 @@
+table {
+	border-collapse: collapse;
+}
+
+td {
+	padding: 0;
+	margin: 0;
+}
+
+.grid-cell,  .dummy {
+	width: 40px;
+	height: 40px;
+}
+
+.grid-wall-vertical {
+	width: 15px;
+	height: 40px;
+}
+
+.grid-wall-horizontal {
+	height: 15px;
+	width: 40px;
+}
+
+.hidden {
+	visibility: hidden;
+}
